@@ -1,0 +1,1 @@
+CREATE SCHEMA `car_hibernate` DEFAULT CHARACTER SET utf8 ;
