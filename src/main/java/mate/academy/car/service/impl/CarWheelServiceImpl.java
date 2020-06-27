@@ -1,16 +1,16 @@
 package mate.academy.car.service.impl;
 
 import java.util.List;
+import lombok.AllArgsConstructor;
 import mate.academy.car.dao.CarWheelDao;
-import mate.academy.car.lib.Inject;
-import mate.academy.car.lib.Service;
 import mate.academy.car.model.CarWheel;
 import mate.academy.car.service.CarWheelService;
+import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class CarWheelServiceImpl implements CarWheelService {
-    @Inject
-    private CarWheelDao carWheelDao;
+    private final CarWheelDao carWheelDao;
 
     @Override
     public CarWheel add(CarWheel carWheel) {

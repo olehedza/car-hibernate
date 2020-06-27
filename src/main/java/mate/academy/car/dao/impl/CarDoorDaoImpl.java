@@ -3,15 +3,15 @@ package mate.academy.car.dao.impl;
 import java.util.List;
 import mate.academy.car.dao.CarDoorDao;
 import mate.academy.car.error.DatabaseConnectionException;
-import mate.academy.car.lib.Dao;
 import mate.academy.car.model.CarDoor;
 import mate.academy.car.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
-@Dao
+@Repository
 public class CarDoorDaoImpl implements CarDoorDao {
     private static final Logger LOGGER = Logger.getLogger(CarDoorDaoImpl.class);
 
