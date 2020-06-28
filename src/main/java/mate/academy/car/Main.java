@@ -2,7 +2,7 @@ package mate.academy.car;
 
 import java.time.LocalDate;
 import java.util.List;
-import mate.academy.car.lib.Injector;
+import mate.academy.car.config.AppConfig;
 import mate.academy.car.model.Car;
 import mate.academy.car.model.CarDoor;
 import mate.academy.car.model.CarWheel;
@@ -10,15 +10,18 @@ import mate.academy.car.model.Mode;
 import mate.academy.car.service.CarDoorService;
 import mate.academy.car.service.CarService;
 import mate.academy.car.service.CarWheelService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
-    private static final Injector injector = Injector.getInstance("mate.academy.car");
+    private static final AnnotationConfigApplicationContext context =
+            new AnnotationConfigApplicationContext(AppConfig.class);
+
     private static final CarService carService =
-            (CarService) injector.getInstance(CarService.class);
+            context.getBean(CarService.class);
     private static final CarDoorService carDoorService =
-            (CarDoorService) injector.getInstance(CarDoorService.class);
+            context.getBean(CarDoorService.class);
     private static final CarWheelService carWheelService =
-            (CarWheelService) injector.getInstance(CarWheelService.class);
+            context.getBean(CarWheelService.class);
 
     public static void main(String[] args) {
         Car car = new Car();
@@ -65,10 +68,5 @@ public class Main {
         car.setDoors(carDoors);
         car.setWheels(carWheels);
         carService.add(car);
-
-        System.out.println("=================CAR==========================");
-        carService.getAll().stream()
-                .peek(System.out::println);
-        System.out.println("=================CAR-END======================");
     }
 }
