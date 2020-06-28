@@ -15,7 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 @ComponentScan(basePackages = {
         "mate.academy.car.dao",
         "mate.academy.car.service",
-        "mate.academy.car.model.mapper"
+        "mate.academy.car.mapper"
 })
 public class AppConfig {
     private final Environment environment;
